@@ -1,8 +1,9 @@
 # Recommender system database for finding unknown inorganic compounds
 
-If you use the recommender system for academic purposes, please cite the following article [1](https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.2.013805) .
+The present tensor-based recommender system database provides currently unknown chemically relevant compositions from database entries (ICSD, ICDD, and Springer Materials). 
+If you use the recommender system database for academic purposes, please cite the following article [1].
 
-[1] A. Seko, H. Hayashi, H. Kashima and I. Tanaka, "Matrix- and tensor-based recommender systems for the discovery of currently unknown inorganic compounds", Phys. Rev. Materials 2, 013805 (2018). 
+[1] [A. Seko, H. Hayashi, H. Kashima and I. Tanaka, "Matrix- and tensor-based recommender systems for the discovery of currently unknown inorganic compounds", Phys. Rev. Materials 2, 013805 (2018)](https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.2.013805) 
 
 
 ## Examples
