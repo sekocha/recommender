@@ -8,6 +8,31 @@ If you use the recommender system database for academic purposes, please cite th
 
 ## Examples
 ```
+> $(recommender)/recommender.py -e Al Si O -n 4 -t ionic --nmax 20 -d recommender-2020-09-09.sqlite
+ # composition, score
+  Al2Ba2O7Si1   0.74232
+  Al2O12Si3Zn3   0.4814
+  Al1Li1O12Si5   0.41613
+  Al2Ba3O14Si4   0.39355
+  Al2O14Si4Sr3   0.34611
+  Al2La2O7Si2   0.29978
+  Al1O10Rb1Si4   0.29434
+  Al1Li17O20Si5   0.28859
+  Al3O16Rb3Si5   0.27276
+  Al2O12Pb3Si3   0.2638
+  Al1O4Si1Sr1   0.24765
+  Al1La1O7Si2   0.24091
+  Al2Ni3O12Si3   0.23918
+  Al1Ba1O4Si1   0.23488
+  Al2Ca3O14Si4   0.23044
+  Al4Cd2O18Si5   0.22631
+  Al1K1O12Si5   0.21797
+  Al2Mn3O8Si1   0.21206
+  Al1O13Si2Y5   0.2119
+  Al4Ni2O18Si5   0.20939
+```
+
+```
 $(recommender)/recommender.py -e N -n 4 --type ionic -d recommender-2020-09-09.sqlite
 $(recommender)/recommender.py -e Al Ga O -n 5 --type ionic -d recommender-2020-09-09.sqlite
 $(recommender)/recommender.py -e Mg Zn -n 2 3 --type alloy -d recommender-2020-09-09.sqlite
