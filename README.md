@@ -1,5 +1,10 @@
 # Recommender system database for finding unknown inorganic compounds
 
+If you use the recommender system for academic purposes, please cite the following article [1](https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.2.013805) .
+
+[1] A. Seko, H. Hayashi, H. Kashima and I. Tanaka, "Matrix- and tensor-based recommender systems for the discovery of currently unknown inorganic compounds", Phys. Rev. Materials 2, 013805 (2018). 
+
+
 ## Examples
 ```
 $(recommender)/recommender.py -e N -n 4 --type ionic -d recommender-2020-09-09.sqlite
