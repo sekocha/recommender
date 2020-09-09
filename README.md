@@ -40,3 +40,5 @@ optional arguments:
                         Score threshold for recommendation
   --nmax NMAX           Maximum number of recommended compositions
 ```
+
+![image](ps3nitrides-map1.png)
