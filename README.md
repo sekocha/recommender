@@ -5,6 +5,10 @@ If you use the recommender system database for academic purposes, please cite th
 
 [1] [A. Seko, H. Hayashi, H. Kashima and I. Tanaka, "Matrix- and tensor-based recommender systems for the discovery of currently unknown inorganic compounds", Phys. Rev. Materials 2, 013805 (2018)](https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.2.013805) 
 
+# Notes on the sqlite database
+The sqlite database of recommender-\*.sqlite is distributed using Git LFS. 
+The database can be downloaded separately from recommender.py. 
+Enter the link of recommender-\*.sqlite, and click on the Download link.
 
 ## Examples
 ```
