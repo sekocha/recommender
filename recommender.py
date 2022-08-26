@@ -33,6 +33,8 @@ import argparse
 import sqlite3
 
 ps = argparse.ArgumentParser()
+ps.add_argument('-d','--database',type=str,default='recommender.sqlite',\
+    help='Database name')
 ps.add_argument('-n','--nary',type=int,nargs='*',default=[3],\
     help='Number of atomic species in recommended compositions')
 ps.add_argument('-e','--elements',type=str,nargs='*',default=[],\
