@@ -12,7 +12,7 @@ Enter the link of recommender-\*.sqlite, and click on the Download link.
 
 ## Examples
 ```
-> python3 $(recommender)/recommender.py -e Al Si O -n 4 -d recommender-2024-06-29.sqlite
+> python3 $(recommender)/recommender.py -e Al Si O -n 4 -d recommender-2024-07-01.sqlite
 # Composition, Score
   Al2Ba2O7Si1   0.74232
   Al2O12Si3Zn3   0.4814
@@ -20,9 +20,8 @@ Enter the link of recommender-\*.sqlite, and click on the Download link.
   Al2Ba3O14Si4   0.39355
   Al2O14Si4Sr3   0.34611
 ```
-
 ```
-> python3 $(recommender)/recommender.py -e N -n 4 -d recommender-2024-06-29.sqlite
+> python3 $(recommender)/recommender.py -e N -n 4 -d recommender-2024-07-01.sqlite
 # Composition, Score
   Ba2Li3N4Sb1   0.48867
   Ba2Cu1Li1N2   0.4738
@@ -32,10 +31,7 @@ Enter the link of recommender-\*.sqlite, and click on the Download link.
   Li1Mo2N7Sr4   0.3572
 ```
 ```
-> python3 $(recommender)/recommender.py -e Al Ga O -n 5 -d recommender-2024-06-29.sqlite
-```
-```
-> python3 $(recommender)/recommender.py -e Mg Zn -n 2 3 -d recommender-2024-06-29.sqlite
+> python3 $(recommender)/recommender.py -e Mg Zn -n 2 3 -d recommender-2024-07-01.sqlite
 # Composition, Score
   Zn1Mg3   0.39168
   Zn1Mg2   0.37147
@@ -45,7 +41,7 @@ Enter the link of recommender-\*.sqlite, and click on the Download link.
   Mg1Zn6   0.16608
 ```
 ```
-> python3 $(recommender)/recommender.py -e Mg Zn -n 2 3 --threshold 0.3 -d recommender-2024-06-29.sqlite
+> python3 $(recommender)/recommender.py -e Mg Zn -n 2 3 --threshold 0.3 -d recommender-2024-07-01.sqlite
 # Composition, Score
   Zn1Mg3   0.39168
   Zn1Mg2   0.37147
