@@ -28,58 +28,83 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 import numpy as np
+import os
 import argparse
 import sqlite3
 
-ps = argparse.ArgumentParser()
-ps.add_argument('-d','--database',type=str,default='recommender.sqlite',\
-    help='Database name')
-ps.add_argument('-n','--nary',type=int,nargs='*',default=[3],\
-    help='Number of atomic species in recommended compositions')
-ps.add_argument('-e','--elements',type=str,nargs='*',default=[],\
-    help='Elements in recommended compositions')
-ps.add_argument('-t', '--type',type=str,default='ionic',\
-    choices=['ionic','alloy'], help='Database type for recommendation')
-ps.add_argument('--threshold',type=float,default=0.01,\
-    help='Score threshold for recommendation')
-ps.add_argument('--nmax',type=int,default=None,\
-    help='Maximum number of recommended compositions')
+default_database = (
+    '/'.join(__file__.split('/')[:-1]) + '/recommender-2024-07-01.sqlite'
+)
 
+ps = argparse.ArgumentParser()
+ps.add_argument(
+    '-d', 
+    '--database', 
+    type=str, 
+    default=default_database,
+    help='Database name'
+)
+ps.add_argument(
+    '-n', 
+    '--nary',
+    type=int,
+    nargs='*',
+    default=[3],
+    help='Number of atomic species in recommended compositions'
+)
+ps.add_argument(
+    '-e',
+    '--elements',
+    type=str,
+    nargs='*',
+    default=[],
+    help='Elements in recommended compositions'
+)
+ps.add_argument(
+    '--threshold', 
+    type=float, 
+    default=0.01,
+    help='Score threshold for recommendation'
+)
 args = ps.parse_args()
 
-conn = sqlite3.connect("recommender-2020-09-09.sqlite")
 
+print("Read from", args.database)
+
+if max(args.nary) > 5 or 1 in args.nary:
+    print("Only binary, ternary, quaternary, and quinary compositions are available.")
+if 4 in args.nary:
+    print("Only ionic compositions are available for -n 4 option.")
+if 5 in args.nary:
+    print("Only ionic compositions are available for -n 5 option.")
+
+conn = sqlite3.connect(args.database)
 resall = []
-if 2 in args.nary and args.type == 'alloy':
-    res = conn.execute('select * from data2alloy')
+if 2 in args.nary:
+    res = conn.execute('select * from data2')
     resall.extend(res.fetchall())
-if 3 in args.nary and args.type == 'alloy':
-    res = conn.execute('select * from data3alloy')
-    resall.extend(res.fetchall())
-if 3 in args.nary and args.type == 'ionic':
+if 3 in args.nary:
     res = conn.execute('select * from data3')
     resall.extend(res.fetchall())
-if 4 in args.nary and args.type == 'ionic':
-    res = conn.execute('select * from data4')
+if 4 in args.nary:
+    res = conn.execute('select * from data4ionic')
     resall.extend(res.fetchall())
-if 5 in args.nary and args.type == 'ionic':
-    res = conn.execute('select * from data5')
+if 5 in args.nary:
+    res = conn.execute('select * from data5ionic')
     resall.extend(res.fetchall())
 
 output = []
 for d in resall:
-    size = int((len(d)-2)/2)
-    if d[-1] > args.threshold and \
-        len(set(args.elements) & set(d[1:size+1])) == len(args.elements):
+    size = int((len(d)-2) / 2)
+    if (
+        d[-1] > args.threshold and len(set(args.elements) & set(d[1:size+1]))
+    ) == len(args.elements):
         output.append((d[0], d[-1]))
 
-if args.nmax is not None:
-    output = sorted(output,key=lambda x: x[1],reverse=True)[:args.nmax]
-else:
-    output = sorted(output,key=lambda x: x[1],reverse=True)
-
-print(' # composition, score')
+output = sorted(output,key=lambda x: x[1],reverse=True)
+print('# Composition, Score')
 for comp, score in output:
     print(' ', comp, ' ', score)
 
